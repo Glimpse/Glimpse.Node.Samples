@@ -1,0 +1,15 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "Calcualte all the things",
+  "license": "MIT",
+  "scripts": {
+    "start": "pm2 start calculator.addition/index.js --name \"addition\" && pm2 start calculator.web/index.js --name \"web\" && pm2 start calculator.batch/index.js --name \"batch\" && pm2 start calculator.division/index.js --name \"division\" && pm2 start calculator.multiply/index.js --name \"multiply\" && pm2 start calculator.subtract/index.js --name \"subtract\"",
+    "stop": "pm2 delete web && pm2 delete batch && pm2 delete addition && pm2 delete division && pm2 delete multiply && pm2 delete subtract",
+    "install": "cd calculator.web && npm install && cd ../calculator.batch && npm install && cd ../calculator.addition && npm install && cd ../calculator.division && npm install && cd ../calculator.multiply && npm install && cd ../calculator.subtract && npm install"
+  },
+  "dependencies": {
+    "cors": "^2.8.3",
+    "pm2": "^2.4.6"
+  }
+}
