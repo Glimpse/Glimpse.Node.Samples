@@ -10,3 +10,26 @@ block content
                 th Result
         tbody(id="calculatorHolder")
     input(type="button", value="Calculate", id="calculatorButton")
+
+    br
+    br
+    br
+    h2 A Simple Micro-Service Calculator
+    p This a simple node.JS Express calculator that performs calculations in multiple processes. We've done this to illustrate Glimpse showing request details from multiple processes.
+    
+    p The are six processes involved. The first two are:
+    ul
+      li web - serves up this page and the calculator buttons below
+      li batch - will relay requests from the web process to the division and multiplication processes
+  
+    p The other four processes perform the appropriate calculcations
+    ul  
+      li addition 
+      li subtraction
+      li division 
+      li multiplication
+
+    p You end up with requests flowing like the picture below.  See all the details of each request in Glimpse.
+
+    img(src='/images/Processes.jpg')
+
