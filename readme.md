@@ -1,3 +1,5 @@
+# calculator-micro-services
+
 ## Setup and launch:
 
 ```bash
