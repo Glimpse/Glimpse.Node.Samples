@@ -1,4 +1,4 @@
-var glimpseAgent = require('@glimpse/glimpse-node-agent');
+var glimpseAgent = require('@glimpse/glimpse-agent-node');
 glimpseAgent.agent.init({
     metadataUri: 'http://localhost:5000/glimpse/metadata'
 });

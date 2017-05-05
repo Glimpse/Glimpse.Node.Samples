@@ -1,4 +1,4 @@
-var glimpse = require('@glimpse/glimpse-node');
+var glimpse = require('@glimpse/glimpse');
 glimpse.init();
 
 var path = require('path');
