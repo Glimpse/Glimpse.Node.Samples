@@ -15,9 +15,8 @@ else
   version=@$1
 fi
 
+restore_glimpse_registry=`npm config get @glimpse:registry`
 npm config set @glimpse:registry=https://www.myget.org/F/g-alpha/npm/
-
-#find $DIR -name "node_modules/@glimpse" | xargs rm -rf 
 
 function npmInstallGlimpse {
   pushd $DIR/$1
@@ -38,3 +37,10 @@ npmInstallGlimpseAgent calculator.multiply
 npmInstallGlimpseAgent calculator.subtract 
 npmInstallGlimpseAgent calculator.division 
 npmInstallGlimpse calculator.web
+
+if [ restore_glimpse_registry == "undefined" ] 
+then
+  npm config delete @glimpse:registry
+else
+  npm config set @glimpse:registry=$restore_glimpse_registry
+fi
