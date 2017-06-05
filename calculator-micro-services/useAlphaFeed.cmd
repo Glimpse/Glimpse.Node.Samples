@@ -26,6 +26,8 @@ goto :EOF
 
 :INSTALL
 
+FOR /F "usebackq delims==" %%i IN (`call npm config get @glimpse:registry`) DO set restoreGlimpseRegistry=%%i
+
 call npm config set @glimpse:registry=https://www.myget.org/F/g-alpha/npm/
 
 call :INSTALL_GLIMPSE calculator.web
@@ -34,6 +36,12 @@ call :INSTALL_GLIMPSE_AGENT calculator.batch
 call :INSTALL_GLIMPSE_AGENT calculator.division
 call :INSTALL_GLIMPSE_AGENT calculator.multiply
 call :INSTALL_GLIMPSE_AGENT calculator.subtract
+
+if "%restoreGlimpseRegistry%" == "undefined" (
+  call npm config delete @glimpse:registry
+) else (
+  call npm config set @glimpse:registry=%restoreGlimpseRegistry%
+)
 
 goto :EOF
 
